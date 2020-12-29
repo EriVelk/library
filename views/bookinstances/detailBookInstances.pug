@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+     div(class='card mb-2 mt-2')
+          div(class='card-body')
+               h2(class='card-title')= title
+               h6(class='card-text text-secondary') ID: #{bookinstance._id}
+          div(class='card-footer')
+               p(class='text-center') Status
+                    if bookinstance.status == 'Available'
+                         div(class='d-grid gap-2')
+                              span(class='btn text-light bg-success')= bookinstance.status
+                    else if bookinstance.status == 'Maintenance'
+                         div(class='d-grid gap-2')
+                              span(class='btn text-light bg-danger')= bookinstance.status
+                    else if bookinstance.status == 'Reserved'
+                         div(class='d-grid gap-2')
+                              span(class='btn text-light bg-dark')= bookinstance.status
+                    else
+                         div(class='d-grid gap-2')
+                              span(class='btn text-light bg-warning')= bookinstance.status
+               
+               if bookinstance.status != 'Available'
+                    div(class='d-grid gap-2')
+                         span(class='btn bg-light') Due: #{bookinstance.due_back_formatted}
+          
+          div(class='card-footer')
+               div(class='d-grid gap-2')
+                    a(href=bookinstance.url+'/delete' class='btn btn-danger') Delete
+                    a(href=bookinstance.url+'/update' class='btn btn-info') Update

@@ -1,0 +1,37 @@
+extends ../layout
+
+block content
+     if errors
+               for error in errors
+                    <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
+                         strong= error.msg
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+     div(class='card mt-1')
+          div(class='card-header')
+               h2= title
+          div(class='card-body')
+               form(method='POST' action='')
+                    div(class='form-group')
+                         div(class='form-group')
+                              label(for='book') Book
+                              select(name='book' id='book' class='form-select' type='select' placeholder='Select book')
+                                   - books.sort(function(a,b){let textA = a.title.toUpperCase(); let textB = b.title.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                                   for book in books
+                                        option(value=book._id selected = (selected_book==book._id.toString() ? 'selected' : false))= book.title
+                         div(class='form-group')
+                              label(for='imprint') Imprint
+                              input(name='imprint' id='imprint' class='form-control' type='text' placeholder='Publisher and date information' autocomplete='off' value=(undefined===bookinstance ? '': bookinstance.imprint))
+                         div(class='form-group')
+                              label(for='status') Status
+                              select(name='status' id='status' class='form-select' type='select')
+                                   option(value='Maintenance' selected=(undefined===bookinstance || bookinstance.status!='Maintenance' ? false:'selected')) Maintenance
+                                   option(value='Available' selected=(undefined===bookinstance || bookinstance.status!='Available' ? false:'selected')) Available
+                                   option(value='Loaned' selected=(undefined===bookinstance || bookinstance.status!='Loaned' ? false:'selected')) Loaned
+                                   option(value='Reserved' selected=(undefined===bookinstance || bookinstance.status!='Reserved' ? false:'selected')) Reserved
+                         div(class='form-group')
+                              label(for='due_back') Due Back
+                              input(name='due_back' id='due_back' type='date' class='form-control' value=(undefined===bookinstance ? '': bookinstance.due_back_formatted))
+                         div(class='d-grid gap-2')
+                              button(class='btn btn-primary mt-2' type='submit') Register
+

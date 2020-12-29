@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+     div(class='card mb-2 mt-2')
+          div(class='card-header')
+               h3(class='card-title')= title
+          div(class='card-body')
+               h5(class='card-title')= genre.name
+     if genre_books.length
+          div(class='alert alert-danger')
+               span Delete the following books before attempting to delete this genre.
+     
+     div(class='card')
+          div(class='card-body')
+               h5(class='card-title') Books    
+          ul(class='list-group list-group-flush')
+               each book in genre_books
+                    li(class='list-group-item')
+                         a(href=book.url class='badge bg-dark')= book.title
+                         p= book.summary
+               else
+                    div(class='alert alert-danger')
+                         span Do you really want to delete this Genre?
+
+                    form(action='' method='POST')
+                         input(name='id' id='id' type='hidden' value=genre._id)
+                         div(class='d-grid gap-2')
+                              button(class='btn btn-danger' type='submit') Delete

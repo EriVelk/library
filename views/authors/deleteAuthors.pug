@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+     div(class='card mb-2 mt-2')
+          div(class='card-header')
+               h2(class='card-title') Author: #{author.name}
+               h4(class='card-subtitle mb-2 text-muted') #{author.lifespan}
+          div(class='card-body')
+               h4(class='card-title') Books
+          ul(class='list-group list-group-flush')
+               if author_books.length > 0
+                    div(class='alert alert-danger') Before deleting this author please delete the following book
+               each book in author_books
+                    li(class='list-group-item')
+                         div(class='d-grid gap-2')
+                              a(href=book.url class='btn btn-light')= book.title
+                         span= book.summary
+               else
+                    li(class='list-group-item')
+                         span Do you really want to delete this author?
+                    li(class='list-group-item')
+                         form(method='POST')
+                              input(name='authorid' id='authorid' type='hidden' value=author._id)
+                              div(class='d-grid gap-2')
+                                   button(class='btn btn-danger' type='submit') Delete

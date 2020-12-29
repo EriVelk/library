@@ -1,0 +1,41 @@
+extends ../layout
+
+block content
+     if errors
+               for error in errors
+                    <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
+                         strong= error.msg
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+     div(class='card mt-1')
+          div(class='card-header text-center')
+               h2= title
+          div(class='card-body')
+               form(action='' method='POST')
+                    div(class='form-group')
+                         label(for='title') Title
+                         input(type='text' class='form-control' id='title' name='title' placeholder='Title of book' autocomplete='off' value=(undefined===book ? '' : book.title))
+                    div(class='form-group')
+                         label(for='author') Author
+                         select(id='author' name='author' class='form-control' placeholder='Select Author')
+                              - authors.sort(function(a,b){let textA = a.family_name.toUpperCase(); let textB = b.family_name.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;});
+                              for author in authors
+                                   if book
+                                        option(value=author._id selected=(author._id.toString()===book.author._id.toString() ? 'selected' : false)) #{author.name}
+                                   else
+                                        option(value=author._id) #{author.name}
+                    div(class='form-group')
+                         label(for='summary') Summary:
+                         input(name='summary' id='summary' type='textarea' class='form-control' placeholder='Summary' autocomplete='off' value=(undefined===book ? '': book.summary))
+                    div(class='form-group')
+                         label(for='isbn') ISBN
+                         input(id='isbn' name='isbn' type='text' class='form-control' placeholder='ISBN-13' autocomplete='off' value=(undefined===book ? '' : book.isbn))
+                    div(class='form-group')
+                         label(for='genre') Genre
+                         div
+                         for genre in genres
+                              div(class='form-check form-check-inline')
+                                   input(type='checkbox' name='genre' id=genre._id value=genre._id checked=genre.checked)
+                                   label(for=genre._id) #{genre.name}
+                    div(class='d-grid gap-2')
+                         button(class='btn btn-info mt-2' type='submit') Register

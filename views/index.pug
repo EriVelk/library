@@ -1,0 +1,20 @@
+extends layout
+
+block content
+     if logout
+          <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
+               strong= logout
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+     div(class='card mt-2')
+          h1(class='card-header')= title
+          div(class='card-body')
+               h5(class='card-text') This application is used to carry out the control and inventory of a basic library, authors, books, genre and instances of the book (available, reserved, maintenance or processing). 
+               
+               h5(class='card-text') It was made with NodeJs using Express JS as a server-side framework, the database was used by MongoDB, as a PUG view engine and Bootstrap 5 styles.
+
+               h5(class='card-text') The authentication was carried out with Passport.js and expres-validator.
+          div(class='card-footer')
+               div(class='d-grid gap-2')
+                    a(href='https://github.com/EriVelk?tab=repositories' class='btn btn-primary') Link to Creator

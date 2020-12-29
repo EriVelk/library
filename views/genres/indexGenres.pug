@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+     div(class='card mt-2')
+          div(class='card-title text-center')
+               h2= title
+          div(class='card-header')
+               div(class='d-grid gap-2')
+                    a(href="/catalog/newgenre" class='btn btn-info') Create New Book Genre
+          ul(class='list-group list-group-flush')
+               each genre in genre_list
+                    li(class='list-group-item')
+                         div(class='d-grid gap-2')
+                              a(href=genre.url class='btn btn-light') #{genre.name}
+               else
+                    li(class='list-group-item') There are not genres.

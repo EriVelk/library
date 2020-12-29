@@ -1,0 +1,46 @@
+extends ../layout
+
+block content
+     div(class='card mb-2 mt-2')
+          div(class='card-body')
+               h2(class='card-title') Title: #{book.title}
+               h4(class='card-subtitle text-muted mt-2 mb-2') Author: 
+                    a(href=book.author.url class='badge bg-dark')= book.author.name
+               
+               h6(class='card-subtitle text-muted mb-2') Genre: 
+                    each genre, index in book.genre
+                         a(href=genre.url class='badge bg-secondary')= genre.name
+                         if index < book.genre.length -1
+               
+               
+               h6(class='card-subtitle text-muted mb-2') Summary: 
+                    span= book.summary
+               
+               ul(class='list-group list-group-flush')
+                    p   
+                    h4 Copies
+
+                    each val in bookinstance
+                         li(class='list-group-item')
+                              if val.status=='Available'
+                                   p(class='text-info')= val.status
+                              else if val.status=='Maintenance'
+                                   p(class='text-danger')= val.status
+                              else 
+                                   p(class='text-warning')= val.status
+                              
+                              p Imprint: #{val.imprint}
+
+                              if val.status != 'Available'
+                                   p Due back: #{val.due_back}
+                              
+                              p Id:
+                                   a(href=val.url) #{val.id}
+                    else
+                         p(class='text-info') There are no copies of this book in the library.
+          div(class='card-footer')
+               div(class='d-grid gap-2')
+                    a(href=book.url+'/delete' class='btn btn-danger') Delete
+                    a(href=book.url+'/update' class='btn btn-info') Update
+                    
+                    

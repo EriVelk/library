@@ -1,0 +1,35 @@
+extends ../layout
+
+block content
+     if errors
+               for error in errors
+                    <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
+                         strong= error.msg
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+     form(action='' method='POST')
+          div(class='card mt-2')
+               div(class='card-body')
+                    h4(class='card-title text-center')= title
+                    div(class='form-group')
+                         label(for='name') Name
+                         input(type='text' class='form-control' id='name' name='name' autocomplete='off' value=(undefined===name ? '':name))
+                    div(class='form-group')
+                         label(for='lastname') Last Name
+                         input(type='text' class='form-control' id='lastname' name='lastname' autocomplete='off' value=(undefined===lastname ? '':lastname))
+                    div(class='form-group')
+                         label(for='date') Date Of Birth
+                         input(type='date' class='form-control' id='date' name='date' value=(undefined===date ? '':date))
+                    div(class='form-group')
+                         label(for='email') Email
+                         input(type='email' class='form-control' id='email' name='email' autocomplete='off' value=(undefined===email ? '':email))
+                    div(class='form-group')
+                         label(for='password') Password
+                         input(type='password' class='form-control' id='password' name='password' autocomplete='new-password')
+                    div(class='form-group')
+                         label(for='conpassword') Confirm Password
+                         input(type='password' class='form-control' id='conpassword' name='conpassword'  autocomplete='new-password')
+               div(class='card-footer text-center')
+                    div(class='d-grid gap-2')
+                         button(type='submit' class='btn btn-warning') Register

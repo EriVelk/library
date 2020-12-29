@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+     if errors
+               for error in errors
+                    <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
+                         strong= error.msg
+                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+     div(class='card mt-1')
+          div(class='card-header')
+               h2= title
+          div(class='card-body')
+               form(method='POST' action='')
+                    div(class='form-group')
+                         div(class='form-group')
+                              label(for='first_name') First Name
+                              input(class='form-control' id='first_name' name='first_name' type='text' placeholder='First Name' autocomplete='off' value=(undefined===author ? '':author.first_name))
+                         div(class='form-group')     
+                              label(for='family_name') Last Name
+                              input(type='text' class='form-control' id='family_name' name='family_name' autocomplete='off' placeholder='Last Name' value=(undefined===author ? '':author.family_name))
+                         div(class='form-group')     
+                              label(for='date_of_birth') Date of birth
+                              input(type='date' class='form-control' id='date_of_birth' name='date_of_birth' value=(undefined===author ? '':author.date_author_birth_format))
+                         div(class='form-group')     
+                              label(for='date_of_death') Date of death
+                              input(type='date' class='form-control' id='date_of_death' name='date_of_death' value=(undefined===author ? '':author.date_author_death_format))
+                         div(class='d-grid gap-2')
+                              button(type='submit' class='btn btn-info mt-2') Register
+          
+                    
+

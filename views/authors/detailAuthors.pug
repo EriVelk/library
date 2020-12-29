@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+     div(class='card mb-2 mt-2')
+          div(class='card-header')
+               h2(class='card-title') Author: #{author.name}
+               h4(class='card-subtitle mb-2 text-muted') #{author.lifespan}
+          div(class='card-body text-center')
+               h3(class='card-title') Books
+          ul(class='list-group list-group-flush')   
+               each book in author_books
+                    li(class='list-group-item text-center')
+                         div(class='d-grid gap-2')
+                              a(href=book.url class='btn btn-light')= book.title
+                         hr
+                         span= book.summary
+               else
+                    li(class='list-group-item') This author has not books.
+          div(class='card-footer')
+               div(class='d-grid gap-2')
+                    a(href=author.url+'/delete' class='btn btn-danger') Delete
+                    a(href=author.url+'/update' class='btn btn-info') Update

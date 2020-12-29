@@ -1,0 +1,27 @@
+extends ../layout
+
+block content
+     div(class='card mb-2 mt-2')
+          div(class='card-header')
+               h2(class='card-title')= title
+          div(class='card-body')
+               span ID: #{bookinstance._id}
+               a(href=bookinstance.url class='badge bg-dark mt-2 mb-2') Book Instance
+               p Imprint: #{bookinstance.imprint}
+               p Status:
+                    if bookinstance.status == 'Available'
+                         span(class='text-info')= bookinstance.status
+                    else if bookinstance.status == 'Maintenance'
+                         span(class='text-danger')= bookinstance.status
+                    else if bookinstance.status == 'Reserved'
+                         span(class='text-dark')= bookinstance.status
+                    else
+                         span(class='text-warning')=bookinstance.status
+               if bookinstance.status != 'Available'
+                    span Due back: #{bookinstance.due_back_formatted}
+     div(class='alert alert-danger') Do you really want to delete this BookInstance?
+
+     form(action='' method='POST')
+          input(type='hidden' id='id' name='id' value=bookinstance._id)
+          div(class='d-grid gap-2')
+               button(type='submit' class='btn btn-danger') Delete

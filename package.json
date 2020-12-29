@@ -1,0 +1,29 @@
+{
+    "name": "Library",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-flash": "^0.1.1",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "express-validator": "^6.8.0",
+        "luxon": "^1.25.0",
+        "mongoose": "^5.11.8",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.6",
+        "passport": "^0.4.1",
+        "passport-local": "^1.0.0",
+        "pug": "^3.0.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "start": "node app.js",
+        "dev": "nodemon app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
+}

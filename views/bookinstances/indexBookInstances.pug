@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+     div(class='card mt-2')
+          div(class='card-title text-center')
+               h2= title
+          div(class='card-header')
+               div(class='d-grid gap-2')
+                    a(href="/catalog/newbookinstance" class='btn btn-info bg-gradient') Create New Book Instances
+          ul(class='list-group list-group-flush')
+               each bookinstance in bookinstance_list
+                    li(class='list-group-item')
+                              div(class='d-grid gap-2')
+                                   a(href=bookinstance.url class='btn btn-light') #{bookinstance.book.title}
+                              if bookinstance.status == 'Available'
+                                   div(class='d-grid gap-2')
+                                        span(class='btn text-dark bg-success')= bookinstance.status
+                              else if bookinstance.status == 'Maintenance'
+                                   div(class='d-grid gap-2')
+                                        span(class='btn text-light bg-danger')= bookinstance.status
+                              else if bookinstance.status == 'Reserved'
+                                   div(class='d-grid gap-2')
+                                        span(class='btn text-light bg-dark')= bookinstance.status
+                              else
+                                   div(class='d-grid gap-2')
+                                        span(class='btn text-light bg-warning')= bookinstance.status
+                              if bookinstance.status != 'Available'
+                                   div(class='d-grid gap-2')
+                                        span(class='btn bg-light') Due: #{bookinstance.due_back_formatted}
+               else
+                    li(class='list-group-item') There are not book copies in this library.
+                         
