@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const dev_db_url = 'mongodb+srv://veliz:QfiSt0ipsWC652Rv@cluster0.wa0k1.mongodb.net/library?retryWrites=true&w=majority';
+const dev_db_url = 'mongodb://localhost/library';
 
 mongoose.connect(process.env.MONGODB_URI || dev_db_url, {
         useNewUrlParser: true,
