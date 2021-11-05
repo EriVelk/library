@@ -56,5 +56,6 @@ AuthorSchema.virtual('date_author_death_format').get(function() {
     return DateTime.fromJSDate(this.date_of_death).toISODate();
 });
 
+
 //Export model
 module.exports = model('Author', AuthorSchema);

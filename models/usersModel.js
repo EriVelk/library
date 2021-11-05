@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     },
     created_at: {
         type: Date,
-        default: Date.now()
+        default: Date( new Date().getTime() -  ( new Date().getTimezoneOffset() * 60000 ) )
     }
 });
 
