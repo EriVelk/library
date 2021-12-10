@@ -21,7 +21,6 @@ bookController.bookControllerListGet = async(req, res, next) => {
 bookController.bookControllerFormGet = async(req, res) => {
     //Get all authors and genres, wich we can use for adding to our book.
     const authors = await Author.find();
-
     const genres = await Genre.find();
 
     res.render('books/formBooks', {
