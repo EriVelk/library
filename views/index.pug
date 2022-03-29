@@ -8,7 +8,10 @@ block content
           </div>
 
      div(class='card mt-2')
-          h1(class='card-header')= title
+          div(class='card-header')
+               h1(class='card-header')= title
+               br
+               img(src="/images/logo.png", alt="" style = "display:block; margin:auto; max-width: 60%; height: auto;")
           div(class='card-body')
                h5(class='card-text') This application is used to carry out the control and inventory of a basic library, authors, books, genre and instances of the book (available, reserved, maintenance or processing). 
                
@@ -17,4 +20,4 @@ block content
                h5(class='card-text') The authentication was carried out with Passport.js and expres-validator.
           div(class='card-footer')
                div(class='d-grid gap-2')
-                    a(href='https://github.com/EriVelk?tab=repositories' class='btn btn-primary') Link to Creator
+                    a(href='https://github.com/EriVelk/library' class='btn btn-primary' target='_blank') Link to github 

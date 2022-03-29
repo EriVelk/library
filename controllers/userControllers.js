@@ -37,6 +37,7 @@ userController.userControllerRegisterPost = [
     async(req, res, next) => {
         //Extract Errors
         const errors = validationResult(req);
+        console.log(errors)
 
         //Create a User object
         const {

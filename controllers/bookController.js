@@ -92,7 +92,7 @@ bookController.bookControllerFormPost = [
 //Detail Book GET
 bookController.bookControllerDetailGet = async(req, res, next) => {
     const book = await Book.findById(req.params.id).populate('author').populate('genre');
-
+    console.log(book);
     const bookinstance = await BookInstance.find({ 'book': req.params.id });
 
     if (book == null) {
