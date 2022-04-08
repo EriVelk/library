@@ -12,8 +12,9 @@ block content
           each book in book_list
                li(class='list-group-item')
                     div(class='d-grid gap-2')
-                         a(href=book.url class='btn btn-light')= book.title
+                         a(href=book.url class='btn btn-light') 
+                              span(class='h4') Title: #{book.title}
                               hr
-                              span= book.author.name
+                              span Author: #{book.author.name}
           else
                li(class='list-group-item') There are not books.

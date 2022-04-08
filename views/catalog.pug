@@ -1,32 +1,41 @@
 extends layout
 
 block content
-     div(class='card mt-2')
-          div(class='card-header text-center')
-               h2= title
-          ul(class='list-group list-group-flush')
-               li(class='list-group-item')
-                    div(class='d-grid gap-2')
-                         span(class='badge bg-light text-dark') Books: #{bookCount}
-                    hr
-                    div(class='d-grid gap-2')
-                         a(href='/catalog/books' class='btn btn-secondary') Books
-               li(class='list-group-item')
-                    div(class='d-grid gap-2')
-                         span(class='badge bg-light text-dark') Authors: #{authorCount}
-                    hr
-                    div(class='d-grid gap-2')
-                         a(href='/catalog/authors' class='btn btn-secondary') Authors 
-               li(class='list-group-item')
-                    div(class='d-grid gap-2')
+     div
+          h2= title
+     div(class='card mb-3')
+          img(src="/images/libro-abierto.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
+          div(class='card-body')
+               div(class='d-grid gap-2')
+                    span(class='badge bg-light text-dark') Books: #{bookCount}
+          div(class='card-footer bg-secondary')
+               div(class='d-grid gap-2')
+                    a(href='/catalog/books' class='btn btn-secondary') Books
+     
+     div(class='card mb-3')
+          img(src="/images/editor.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
+          div(class='card-body')
+               div(class='d-grid gap-2')
+                    span(class='badge bg-light text-dark') Authors: #{authorCount}
+          div(class='card-footer bg-secondary')
+               div(class='d-grid gap-2')
+                    a(href='/catalog/authors' class='btn btn-secondary') Authors 
+     
+     div(class='card mb-3')
+          img(src="/images/category.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
+          div(class='card-body')     
+               div(class='d-grid gap-2')
                          span(class='badge bg-light text-dark') Genres: #{genreCount}
-                    hr
-                    div(class='d-grid gap-2')
-                         a(href='/catalog/genres' class='btn btn-secondary') Genres
-               li(class='list-group-item')
-                    div(class='d-grid gap-2')
-                         span(class='badge bg-light text-dark') BookInstances: #{bookInstanceCount}
-                    hr
-                    div(class='d-grid gap-2')
-                         a(href='/catalog/bookinstances' class='btn btn-secondary') Book Instances 
+          div(class='card-footer bg-secondary')
+               div(class='d-grid gap-2')
+                    a(href='/catalog/genres' class='btn btn-secondary') Genres
+     
+     div(class='card mb-3')
+          img(src="/images/reserve.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
+          div(class='card-body')      
+               div(class='d-grid gap-2')
+                    span(class='badge bg-light text-dark') BookInstances: #{bookInstanceCount}
+          div(class='card-footer bg-secondary')
+               div(class='d-grid gap-2')
+                    a(href='/catalog/bookinstances' class='btn btn-secondary') Book Instances 
                          
