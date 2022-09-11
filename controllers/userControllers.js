@@ -66,6 +66,7 @@ userController.userControllerRegisterPost = [
                 password
             });
             newUser.password = await newUser.encryptPassword(password);
+            console.log(newUser);
             await newUser.save();
             res.redirect('login');
         }

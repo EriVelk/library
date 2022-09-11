@@ -2,7 +2,11 @@ const Book = require('../models/bookModel');
 const Author = require('../models/authorModel');
 const Genre = require('../models/genreModel');
 const BookInstance = require('../models/bookinstanceModel');
+const path = require('path');
 const { body, validationResult } = require('express-validator');
+const Resize = require('../config/resize');
+const multer = require('multer');
+const upload = require('../config/upload');
 
 const bookController = {};
 
@@ -50,9 +54,19 @@ bookController.bookControllerFormPost = [
     body('isbn', 'ISBN must not be empty.').trim().isLength({ min: 1 }).escape(),
     body('genre.*').escape(),
 
+    upload.single('image'),
+
     async(req, res, next) => {
         //Extract the validation errors.
         const errors = validationResult(req);
+
+        const imagePath = path.join(__dirname, '/public/images/library');
+
+        const fileUpload = new Resize(imagePath);
+        console.log(fileUpload)
+        //const filename = await fileUpload.save(req.file.buffer);
+
+        //console.log(filename);
 
         const book = new Book({
             title: req.body.title,
@@ -79,6 +93,7 @@ bookController.bookControllerFormPost = [
                 errors: errors.array()
             });
         } else {
+            console.log(book)
             book.save(function(err) {
                 if (err) {
                     return next(err);

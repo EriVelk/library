@@ -55,6 +55,7 @@ authorController.authorControllerFormPost = [
                 date_of_birth: req.body.date_of_birth,
                 date_of_death: req.body.date_of_death
             });
+            console.log(author)
             author.save(function(err) {
                 if (err) {
                     return next(err);

@@ -60,6 +60,7 @@ genreController.genreControllerFormPost = [
                     //Genre exists, redirect to its detail page.
                     res.redirect(found.url);
                 } else {
+                    console.log(genre);
                     genre.save();
 
                     res.redirect(genre.url);

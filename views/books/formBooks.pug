@@ -31,6 +31,9 @@ block content
                          label(for='isbn') ISBN
                          input(id='isbn' name='isbn' type='text' class='form-control' placeholder='ISBN-13' autocomplete='off' value=(undefined===book ? '' : book.isbn))
                     div(class='form-group')
+                         label(for='image') Image 
+                         input(id='image' name='image' type='file' class='form-control' placeholder='ISBN-13' autocomplete='off' value=(undefined===book ? '' : book.image))
+                    div(class='form-group')
                          label(for='genre') Genre
                          div
                          for genre in genres

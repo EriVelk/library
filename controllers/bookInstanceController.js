@@ -68,6 +68,7 @@ bookInstanceController.bookInstanceControllerFormPost = [
             return;
         } else {
             //Data from form is valid.
+            console.log(bookinstance)
             bookinstance.save(function(err) {
                 if (err) {
                     return next(err);

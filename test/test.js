@@ -432,4 +432,3 @@ describe('GET /register', function(){
         });
     })
   });
-  
