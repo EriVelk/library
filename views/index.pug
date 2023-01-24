@@ -4,7 +4,7 @@ block content
      if logout
           <div class="mt-1 alert alert-danger alert-dismissible fade show" role="alert">
                strong= logout
-               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               <button id='logout' name='logout' type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
 
      div(class='card mt-2')
@@ -20,4 +20,4 @@ block content
                h5(class='card-text') The authentication was carried out with Passport.js and expres-validator.
           div(class='card-footer')
                div(class='d-grid gap-2')
-                    a(href='https://github.com/EriVelk/library' class='btn btn-primary' target='_blank') Link to github 
+                    a(href='https://github.com/EriVelk/library' class='btn btn-primary' target='_blank' id='link-github' name='link-github') Link to github 

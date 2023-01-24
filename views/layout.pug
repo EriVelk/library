@@ -11,19 +11,19 @@ html(lang="en")
      nav(class='navbar navbar-expand-lg navbar-dark bg-success')
           div(class='container-fluid')
                a(class='navbar-brand' href='/') Library
-               button(class='navbar-toggler' type='button' data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+               button(id='colllapse' name='collapse' class='navbar-toggler' type='button' data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
                     span(class='navbar-toggler-icon')
                div(class="collapse navbar-collapse" id="navbarNav")
                     ul(class='navbar-nav')
                          if user == null
                               li(class='nav-item')
-                                   a(class='nav-link' href='/login') Log In
+                                   a(class='nav-link' href='/login' id='login' name='login') Log In
                               li(class='nav-item')
-                                   a(class='nav-link' href='/register') Register
+                                   a(class='nav-link' href='/register' id='register' name='register') Register
                          if user != null
                               li(class='nav-item')
-                                   a(class='nav-link' href='/catalog') Catalog
+                                   a(class='nav-link' href='/catalog' id='catalog' name='catalog') Catalog
                               li(class='nav-item')
-                                   a(class='nav-link' href='/logout') Log Out
+                                   a(class='nav-link' href='/logout' id='logout' name='logout') Log Out
      div(class='container')
           block content

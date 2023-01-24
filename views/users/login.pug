@@ -4,9 +4,9 @@ block content
      if error.length > 0
                <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
                     strong= error
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <button type="button" id="close" name="close" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                </div>
-     form(action='' method='POST')
+     form(method='POST')
           div(class='card mt-2')
                div(class='card-body')
                     h4(class='card-title text-center')= title
@@ -18,9 +18,9 @@ block content
                          input(type='password' class='form-control' id='password' name='password' required=true autocomplete='current-password')
                div(class='card-footer text-center')
                     div(class='d-grid gap-2')
-                         button(type='submit' class='btn btn-primary mb-2') Login
+                         button(type='submit' class='btn btn-primary mb-2' id='btn-login' name='btn-login') Login
                     a(href='#') Have you forgotten the password?
                     hr
                     div(class='d-grid gap-2')
-                         a(href='/register' class='btn btn-warning') Register
+                         a(href='/register' class='btn btn-warning' id='btn-register' name='btn-register') Register
                     

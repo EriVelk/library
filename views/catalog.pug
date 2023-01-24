@@ -10,7 +10,7 @@ block content
                     span(class='badge bg-light text-dark') Books: #{bookCount}
           div(class='card-footer bg-secondary')
                div(class='d-grid gap-2')
-                    a(href='/catalog/books' class='btn btn-secondary') Books
+                    a(href='/catalog/books' class='btn btn-secondary' id='books' name='books') Books
      
      div(class='card mb-3')
           img(src="/images/editor.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
@@ -19,7 +19,7 @@ block content
                     span(class='badge bg-light text-dark') Authors: #{authorCount}
           div(class='card-footer bg-secondary')
                div(class='d-grid gap-2')
-                    a(href='/catalog/authors' class='btn btn-secondary') Authors 
+                    a(href='/catalog/authors' class='btn btn-secondary' id='authors' name='authors') Authors 
      
      div(class='card mb-3')
           img(src="/images/category.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
@@ -28,7 +28,7 @@ block content
                          span(class='badge bg-light text-dark') Genres: #{genreCount}
           div(class='card-footer bg-secondary')
                div(class='d-grid gap-2')
-                    a(href='/catalog/genres' class='btn btn-secondary') Genres
+                    a(href='/catalog/genres' class='btn btn-secondary' id='genres' name='genres') Genres
      
      div(class='card mb-3')
           img(src="/images/reserve.png", alt="" style = "display:block; margin:auto; max-width: 15%; height: auto;")
@@ -37,5 +37,5 @@ block content
                     span(class='badge bg-light text-dark') BookInstances: #{bookInstanceCount}
           div(class='card-footer bg-secondary')
                div(class='d-grid gap-2')
-                    a(href='/catalog/bookinstances' class='btn btn-secondary') Book Instances 
+                    a(href='/catalog/bookinstances' class='btn btn-secondary' id='book-instances' name='book-instances') Book Instances 
                          
