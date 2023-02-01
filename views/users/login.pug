@@ -2,10 +2,10 @@ extends ../layout
 
 block content
      if error.length > 0
-               <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
+               div(id="alert-error" name="alert-error" class="alert alert-danger alert-dismissible fade show mt-1" role="alert")
                     strong= error
-                    <button type="button" id="close" name="close" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-               </div>
+                    button(type="button" id="close" name="close" class="btn-close" data-bs-dismiss="alert" aria-label="Close")
+               
      form(method='POST')
           div(class='card mt-2')
                div(class='card-body')

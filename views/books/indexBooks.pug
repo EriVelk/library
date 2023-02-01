@@ -6,7 +6,7 @@ block content
                h2= title
           div(class='card-header')
                div(class='d-grid gap-2')
-                    a(href='/catalog/newbook' class='btn btn-info') Create New Book
+                    a(id='btn-create-book' name='btn-create-book' href='/catalog/newbook' class='btn btn-info') Create New Book
           ul(class='list-group list-group-flush')
           - book_list.sort(function(a,b){ let textA = a.title.toUpperCase(); let textB = b.title.toUpperCase(); return (textA < textB)  ? -1 : (textA > textB) ? 1 : 0;});
           each book in book_list

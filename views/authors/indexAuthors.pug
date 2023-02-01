@@ -6,7 +6,7 @@ block content
                h2= title
           div(class='card-header')
                div(class='d-grid gap-2')
-                    a(href="/catalog/newauthor" class='btn btn-info') Create New Author
+                    a(id='btn-create-author' name='btn-create-author' href="/catalog/newauthor" class='btn btn-info') Create New Author
           ul(class='list-group list-group-flush')
                each author in author_list
                     li(class='list-group-item')

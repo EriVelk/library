@@ -3,9 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const dev_db_url = 'mongodb://localhost/library';
-
-mongoose.connect(process.env.MONGODB_URI  || dev_db_url, {
+mongoose.connect(process.env.dev_db_url || process.env.MONGODB_URI, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
